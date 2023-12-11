@@ -7,7 +7,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
 stem = PorterStemmer()
-stop_words = set(stopwords.words('english'))
+stop_words = set(stopwords.words())
 
 def expand_abbreviations(senti):
     abbreviation_dict = {
@@ -44,7 +44,6 @@ def predict_spam():
         messagebox.showinfo("Prediction", "This message is Spam.")
     text_entry.delete("1.0", "end")
 
-# Tải mô hình và CountVectorizer
 with open('svm_model.pkl', 'rb') as file:
     loaded_model = pickle.load(file)
 

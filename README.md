@@ -1,2 +1,2 @@
-# NLP_Spam_Detection
+# NLP_Phát_hiện_tin_nhắn_rác
 NLP_Course

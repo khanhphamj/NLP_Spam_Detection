@@ -39,9 +39,9 @@ def predict_spam():
     dense_vectorized_message = vectorized_message.toarray()
     prediction = loaded_model.predict(dense_vectorized_message)
     if prediction[0] == 'ham':
-        messagebox.showinfo("Prediction", "This message is not Spam.")
+        messagebox.showinfo("Nhận diện", "Đây không phải tin nhắn rác.")
     else:
-        messagebox.showinfo("Prediction", "This message is Spam.")
+        messagebox.showinfo("Nhận diện", "Đây là tin nhắn rác.")
     text_entry.delete("1.0", "end")
 
 with open('svm_model.pkl', 'rb') as file:
@@ -52,15 +52,15 @@ with open('count_vectorizer.pkl', 'rb') as file:
 
 # Thiết lập giao diện tkinter
 root = tk.Tk()
-root.title("SMS Spam Detector")
+root.title("Nhận diện tin nhắn rác")
 
-label = tk.Label(root, text="Enter a message:", padx=10, pady=10)
+label = tk.Label(root, text="Nhập nội dung tin nhắn:", padx=10, pady=10)
 label.pack()
 
 text_entry = tk.Text(root, height=10, width=50)
 text_entry.pack()
 
-predict_button = tk.Button(root, text="Predict", command=predict_spam)
+predict_button = tk.Button(root, text="Nhận diện", command=predict_spam)
 predict_button.pack()
 
 root.mainloop()

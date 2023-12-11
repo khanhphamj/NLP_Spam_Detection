@@ -6,11 +6,9 @@ from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
-# Khởi tạo PorterStemmer và stop words
 stem = PorterStemmer()
 stop_words = set(stopwords.words('english'))
 
-# Hàm mở rộng các từ viết tắt
 def expand_abbreviations(senti):
     abbreviation_dict = {
         "dun": "do not",
@@ -23,7 +21,7 @@ def expand_abbreviations(senti):
         senti = senti.replace(abbr, expanded)
     return senti
 
-# Hàm tiền xử lý tin nhắn
+
 def preprocess_message(message):
     senti = re.sub('[^A-Za-z]', ' ', message)
     senti = senti.lower()
@@ -33,7 +31,7 @@ def preprocess_message(message):
     senti = expand_abbreviations(senti)
     return senti
 
-# Hàm để dự đoán tin nhắn
+
 def predict_spam():
     new_message = text_entry.get("1.0", "end-1c")
     processed_message = preprocess_message(new_message)
@@ -44,7 +42,7 @@ def predict_spam():
         messagebox.showinfo("Prediction", "This message is not Spam.")
     else:
         messagebox.showinfo("Prediction", "This message is Spam.")
-    text_entry.delete("1.0", "end")  # Xóa nội dung đã nhập sau khi dự đoán
+    text_entry.delete("1.0", "end")
 
 # Tải mô hình và CountVectorizer
 with open('svm_model.pkl', 'rb') as file:

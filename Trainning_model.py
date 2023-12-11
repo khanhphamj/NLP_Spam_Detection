@@ -1,7 +1,6 @@
 import pandas as pd
 import re
 import pickle
-import nltk
 from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize

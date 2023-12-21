@@ -6,6 +6,12 @@ from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
+with open('svm_model.pkl', 'rb') as file:
+    loaded_model = pickle.load(file)
+
+with open('count_vectorizer.pkl', 'rb') as file:
+    loaded_cv = pickle.load(file)
+
 stem = PorterStemmer()
 stop_words = set(stopwords.words())
 
@@ -44,11 +50,7 @@ def predict_spam():
         messagebox.showinfo("Nhận diện", "Đây là tin nhắn rác.")
     text_entry.delete("1.0", "end")
 
-with open('svm_model.pkl', 'rb') as file:
-    loaded_model = pickle.load(file)
 
-with open('count_vectorizer.pkl', 'rb') as file:
-    loaded_cv = pickle.load(file)
 
 # Thiết lập giao diện tkinter
 root = tk.Tk()
